@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AfriSource Connect — ER Diagram</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #F7F9F7; font-family: Arial, sans-serif; padding: 20px; }
+  h1 { text-align: center; color: #1A6B3C; font-size: 20px; margin-bottom: 6px; }
+  p.sub { text-align: center; color: #666; font-size: 13px; margin-bottom: 20px; }
+
+  svg { display: block; margin: 0 auto; }
+
+  /* Entity boxes */
+  .entity rect { fill: #1A6B3C; rx: 6; }
+  .entity text.title { fill: white; font-weight: bold; font-size: 13px; }
+  .entity text.attr { fill: #1A3A1A; font-size: 11px; }
+  .attr-box { fill: #EAF5EE; stroke: #1A6B3C; stroke-width: 1.5; }
+  .pk { font-weight: bold; fill: #C8960C !important; }
+
+  /* Relationship diamonds */
+  .rel polygon { fill: #C8960C; }
+  .rel text { fill: white; font-weight: bold; font-size: 11px; }
+
+  /* Lines */
+  line, path { stroke: #555; stroke-width: 1.8; fill: none; }
+  .dbl { stroke: #1A6B3C; stroke-width: 2.5; }
+
+  .legend-box { fill: #fff; stroke: #ccc; stroke-width: 1; }
+  .card { font-size: 11px; fill: #333; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>AfriSource Connect — Entity-Relationship Diagram</h1>
+<p class="sub">ISYE 482 Course Project &nbsp;|&nbsp; Normalized to 3NF &nbsp;|&nbsp; 6 Entities &nbsp;|&nbsp; 5 Relationships</p>
+
+<svg width="1100" height="780" viewBox="0 0 1100 780">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- ══════════════════════════════════════════════════════
+       ENTITIES
+  ════════════════════════════════════════════════════════ -->
+
+  <!-- SUPPLIER (center-left) -->
+  <g id="SUPPLIER">
+    <rect x="60" y="280" width="210" height="220" rx="6" fill="#1A6B3C"/>
+    <text x="165" y="302" text-anchor="middle" fill="white" font-weight="bold" font-size="14" font-family="Arial">SUPPLIER</text>
+    <line x1="60" y1="310" x2="270" y2="310" stroke="white" stroke-width="1"/>
+    <!-- attrs -->
+    <rect x="70" y="316" width="190" height="22" rx="3" class="attr-box"/>
+    <text x="80" y="331" font-family="Arial" font-size="11" class="pk" fill="#C8960C" font-weight="bold">🔑 SupplierID (PK)</text>
+
+    <rect x="70" y="341" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="80" y="355" font-family="Arial" font-size="11" fill="#1A3A1A">CompanyName</text>
+
+    <rect x="70" y="364" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="80" y="378" font-family="Arial" font-size="11" fill="#1A3A1A">Country</text>
+
+    <rect x="70" y="387" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="80" y="401" font-family="Arial" font-size="11" fill="#1A3A1A">Region</text>
+
+    <rect x="70" y="410" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="80" y="424" font-family="Arial" font-size="11" fill="#1A3A1A">ExportLicenseNum</text>
+
+    <rect x="70" y="433" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="80" y="447" font-family="Arial" font-size="11" fill="#1A3A1A">VerificationStatus</text>
+
+    <rect x="70" y="456" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="80" y="470" font-family="Arial" font-size="11" fill="#1A3A1A">ContactEmail</text>
+    <text x="165" y="490" text-anchor="middle" fill="#aaa" font-size="10" font-family="Arial">DateRegistered</text>
+  </g>
+
+  <!-- PRODUCT (center) -->
+  <g id="PRODUCT">
+    <rect x="420" y="270" width="210" height="220" rx="6" fill="#1A6B3C"/>
+    <text x="525" y="292" text-anchor="middle" fill="white" font-weight="bold" font-size="14" font-family="Arial">PRODUCT</text>
+    <line x1="420" y1="300" x2="630" y2="300" stroke="white" stroke-width="1"/>
+
+    <rect x="430" y="306" width="190" height="22" rx="3" class="attr-box"/>
+    <text x="440" y="321" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔑 ProductID (PK)</text>
+
+    <rect x="430" y="331" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="440" y="345" font-family="Arial" font-size="11" fill="#1A3A1A">ProductName</text>
+
+    <rect x="430" y="354" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="440" y="368" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔗 SupplierID (FK)</text>
+
+    <rect x="430" y="377" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="440" y="391" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔗 CategoryID (FK)</text>
+
+    <rect x="430" y="400" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="440" y="414" font-family="Arial" font-size="11" fill="#1A3A1A">UnitPrice</text>
+
+    <rect x="430" y="423" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="440" y="437" font-family="Arial" font-size="11" fill="#1A3A1A">MinOrderQty</text>
+
+    <rect x="430" y="446" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="440" y="460" font-family="Arial" font-size="11" fill="#1A3A1A">AvailabilityStatus</text>
+
+    <text x="525" y="484" text-anchor="middle" fill="#aaa" font-size="10" font-family="Arial">OriginCountry</text>
+  </g>
+
+  <!-- CATEGORY (top-center) -->
+  <g id="CATEGORY">
+    <rect x="440" y="60" width="190" height="150" rx="6" fill="#1A6B3C"/>
+    <text x="535" y="82" text-anchor="middle" fill="white" font-weight="bold" font-size="14" font-family="Arial">CATEGORY</text>
+    <line x1="440" y1="90" x2="630" y2="90" stroke="white" stroke-width="1"/>
+
+    <rect x="450" y="96" width="170" height="22" rx="3" class="attr-box"/>
+    <text x="460" y="111" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔑 CategoryID (PK)</text>
+
+    <rect x="450" y="121" width="170" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="460" y="135" font-family="Arial" font-size="11" fill="#1A3A1A">CategoryName</text>
+
+    <rect x="450" y="144" width="170" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="460" y="158" font-family="Arial" font-size="11" fill="#777">ParentCategoryID (self-FK)</text>
+
+    <text x="535" y="200" text-anchor="middle" fill="#aaa" font-size="10" font-family="Arial">(nullable — top-level cats)</text>
+  </g>
+
+  <!-- CERTIFICATION (bottom-left) -->
+  <g id="CERTIFICATION">
+    <rect x="40" y="580" width="215" height="170" rx="6" fill="#1A6B3C"/>
+    <text x="147" y="602" text-anchor="middle" fill="white" font-weight="bold" font-size="14" font-family="Arial">CERTIFICATION</text>
+    <line x1="40" y1="610" x2="255" y2="610" stroke="white" stroke-width="1"/>
+
+    <rect x="50" y="616" width="195" height="22" rx="3" class="attr-box"/>
+    <text x="60" y="631" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔑 CertID (PK)</text>
+
+    <rect x="50" y="641" width="195" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="60" y="655" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔗 SupplierID (FK)</text>
+
+    <rect x="50" y="664" width="195" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="60" y="678" font-family="Arial" font-size="11" fill="#1A3A1A">CertificationType</text>
+
+    <rect x="50" y="687" width="195" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="60" y="701" font-family="Arial" font-size="11" fill="#1A3A1A">IssuingBody</text>
+
+    <text x="147" y="725" text-anchor="middle" fill="#aaa" font-size="10" font-family="Arial">IssueDate &nbsp;|&nbsp; ExpiryDate</text>
+  </g>
+
+  <!-- IMPORTER (right) -->
+  <g id="IMPORTER">
+    <rect x="840" y="270" width="210" height="190" rx="6" fill="#1A6B3C"/>
+    <text x="945" y="292" text-anchor="middle" fill="white" font-weight="bold" font-size="14" font-family="Arial">IMPORTER</text>
+    <line x1="840" y1="300" x2="1050" y2="300" stroke="white" stroke-width="1"/>
+
+    <rect x="850" y="306" width="190" height="22" rx="3" class="attr-box"/>
+    <text x="860" y="321" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔑 ImporterID (PK)</text>
+
+    <rect x="850" y="331" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="860" y="345" font-family="Arial" font-size="11" fill="#1A3A1A">CompanyName</text>
+
+    <rect x="850" y="354" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="860" y="368" font-family="Arial" font-size="11" fill="#1A3A1A">State</text>
+
+    <rect x="850" y="377" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="860" y="391" font-family="Arial" font-size="11" fill="#777">FDARegistrationNum*</text>
+
+    <rect x="850" y="400" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="860" y="414" font-family="Arial" font-size="11" fill="#1A3A1A">ContactName</text>
+
+    <rect x="850" y="423" width="190" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="860" y="437" font-family="Arial" font-size="11" fill="#1A3A1A">ContactEmail</text>
+
+    <text x="945" y="456" text-anchor="middle" fill="#aaa" font-size="10" font-family="Arial">* nullable until approved</text>
+  </g>
+
+  <!-- INQUIRY (bottom-center) -->
+  <g id="INQUIRY">
+    <rect x="680" y="570" width="215" height="185" rx="6" fill="#1A6B3C"/>
+    <text x="787" y="592" text-anchor="middle" fill="white" font-weight="bold" font-size="14" font-family="Arial">INQUIRY</text>
+    <line x1="680" y1="600" x2="895" y2="600" stroke="white" stroke-width="1"/>
+
+    <rect x="690" y="606" width="195" height="22" rx="3" class="attr-box"/>
+    <text x="700" y="621" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔑 InquiryID (PK)</text>
+
+    <rect x="690" y="631" width="195" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="700" y="645" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔗 ImporterID (FK)</text>
+
+    <rect x="690" y="654" width="195" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="700" y="668" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔗 ProductID (FK)</text>
+
+    <rect x="690" y="677" width="195" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="700" y="691" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔗 SupplierID (FK)</text>
+
+    <rect x="690" y="700" width="195" height="20" rx="3" class="attr-box" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+    <text x="700" y="714" font-family="Arial" font-size="11" fill="#1A3A1A">DateSubmitted &nbsp;|&nbsp; Status</text>
+
+    <text x="787" y="745" text-anchor="middle" fill="#aaa" font-size="10" font-family="Arial">QuantityRequested &nbsp;|&nbsp; ResponseDate*</text>
+  </g>
+
+  <!-- ══════════════════════════════════════════════════════
+       RELATIONSHIP DIAMONDS
+  ════════════════════════════════════════════════════════ -->
+
+  <!-- OFFERS: SUPPLIER → PRODUCT -->
+  <polygon points="340,355 365,375 340,395 315,375" fill="#C8960C"/>
+  <text x="340" y="379" text-anchor="middle" fill="white" font-weight="bold" font-size="10" font-family="Arial">OFFERS</text>
+
+  <!-- BELONGS TO: PRODUCT → CATEGORY -->
+  <polygon points="525,220 550,240 525,260 500,240" fill="#C8960C"/>
+  <text x="525" y="244" text-anchor="middle" fill="white" font-weight="bold" font-size="10" font-family="Arial">BELONGS</text>
+  <text x="525" y="255" text-anchor="middle" fill="white" font-weight="bold" font-size="10" font-family="Arial">TO</text>
+
+  <!-- HOLDS: SUPPLIER → CERTIFICATION -->
+  <polygon points="150,540 175,560 150,580 125,560" fill="#C8960C"/>
+  <text x="150" y="564" text-anchor="middle" fill="white" font-weight="bold" font-size="10" font-family="Arial">HOLDS</text>
+
+  <!-- SUBMITS: IMPORTER → INQUIRY -->
+  <polygon points="860,490 885,510 860,530 835,510" fill="#C8960C"/>
+  <text x="860" y="514" text-anchor="middle" fill="white" font-weight="bold" font-size="10" font-family="Arial">SUBMITS</text>
+
+  <!-- FOR: INQUIRY → PRODUCT (via line only, no diamond — FK reference) -->
+  <!-- Handled by the FK arrow below -->
+
+  <!-- ══════════════════════════════════════════════════════
+       RELATIONSHIP LINES WITH CARDINALITY
+  ════════════════════════════════════════════════════════ -->
+
+  <!-- SUPPLIER —1——OFFERS——M— PRODUCT -->
+  <line x1="270" y1="375" x2="315" y2="375" stroke="#555" stroke-width="2"/>
+  <text x="288" y="368" class="card" font-family="Arial">1</text>
+  <line x1="365" y1="375" x2="420" y2="375" stroke="#555" stroke-width="2"/>
+  <text x="390" y="368" class="card" font-family="Arial">M</text>
+
+  <!-- PRODUCT —M——BELONGS TO——1— CATEGORY -->
+  <line x1="525" y1="270" x2="525" y2="260" stroke="#555" stroke-width="2"/>
+  <text x="533" y="265" class="card" font-family="Arial">M</text>
+  <line x1="525" y1="210" x2="525" y2="210" stroke="#555" stroke-width="2"/>
+  <line x1="525" y1="215" x2="535" y2="215" stroke="transparent"/>
+  <!-- upper line -->
+  <line x1="525" y1="240" x2="525" y2="210" stroke="#555" stroke-width="2"/>
+  <text x="533" y="218" class="card" font-family="Arial">1</text>
+
+  <!-- SUPPLIER —1——HOLDS——M— CERTIFICATION -->
+  <line x1="150" y1="500" x2="150" y2="540" stroke="#555" stroke-width="2"/>
+  <text x="158" y="520" class="card" font-family="Arial">M</text>
+  <line x1="150" y1="500" x2="150" y2="480" stroke="#555" stroke-width="2"/>
+  <line x1="165" y1="480" x2="165" y2="480" stroke="transparent"/>
+  <line x1="150" y1="480" x2="165" y2="480" stroke="#555" stroke-width="2"/>
+  <line x1="165" y1="480" x2="165" y2="500" stroke="#555" stroke-width="2"/>
+  <!-- connect supplier bottom to HOLDS diamond top -->
+  <line x1="150" y1="500" x2="150" y2="540" stroke="#555" stroke-width="2"/>
+  <!-- connect supplier to holds -->
+  <line x1="165" y1="450" x2="165" y2="450" stroke="transparent"/>
+  <!-- simple straight lines -->
+  <line x1="150" y1="500" x2="150" y2="540" stroke="#555" stroke-width="2"/>
+  <line x1="150" y1="580" x2="150" y2="580" stroke="#555" stroke-width="2"/>
+
+  <!-- cleaner: direct line from SUPPLIER bottom to HOLDS top, HOLDS bottom to CERTIFICATION top -->
+  <!-- override above with clean lines -->
+  <line x1="165" y1="500" x2="165" y2="500" stroke="none"/>
+
+  <!-- SUPPLIER bottom-left corner to HOLDS -->
+  <line x1="147" y1="500" x2="147" y2="540" stroke="#1A6B3C" stroke-width="2.5"/>
+  <text x="115" y="525" class="card" font-family="Arial" fill="#1A6B3C">1</text>
+  <line x1="147" y1="580" x2="147" y2="580" stroke="#1A6B3C" stroke-width="2.5"/>
+  <line x1="147" y1="580" x2="147" y2="600" stroke="#1A6B3C" stroke-width="2.5"/>
+  <text x="115" y="598" class="card" font-family="Arial" fill="#1A6B3C">M</text>
+
+  <!-- IMPORTER to SUBMITS diamond -->
+  <line x1="860" y1="460" x2="860" y2="510" stroke="#1A6B3C" stroke-width="2.5"/>
+  <text x="868" y="490" class="card" font-family="Arial" fill="#1A6B3C">1</text>
+  <!-- SUBMITS to INQUIRY -->
+  <line x1="860" y1="530" x2="860" y2="570" stroke="#1A6B3C" stroke-width="2.5"/>
+  <text x="868" y="558" class="card" font-family="Arial" fill="#1A6B3C">M</text>
+
+  <!-- INQUIRY references PRODUCT (FK dashed line) -->
+  <line x1="787" y1="570" x2="630" y2="450" stroke="#C8960C" stroke-width="1.8" stroke-dasharray="6,4"/>
+  <text x="700" y="495" class="card" font-family="Arial" fill="#C8960C" font-size="10">FK ref</text>
+
+  <!-- INQUIRY references SUPPLIER (FK dashed line) -->
+  <line x1="700" y1="660" x2="270" y2="450" stroke="#C8960C" stroke-width="1.8" stroke-dasharray="6,4"/>
+  <text x="450" y="600" class="card" font-family="Arial" fill="#C8960C" font-size="10">FK ref</text>
+
+  <!-- SUPPLIER to OFFERS -->
+  <line x1="270" y1="375" x2="315" y2="375" stroke="#1A6B3C" stroke-width="2.5"/>
+
+  <!-- ══════════════════════════════════════════════════════
+       LEGEND
+  ════════════════════════════════════════════════════════ -->
+  <rect x="20" y="20" width="310" height="115" rx="6" fill="white" stroke="#ccc" stroke-width="1.5"/>
+  <text x="35" y="42" font-family="Arial" font-size="12" font-weight="bold" fill="#333">Legend</text>
+
+  <rect x="35" y="52" width="16" height="14" rx="2" fill="#1A6B3C"/>
+  <text x="58" y="63" font-family="Arial" font-size="11" fill="#333">Entity (table)</text>
+
+  <polygon points="35,82 48,90 35,98 22,90" fill="#C8960C" transform="translate(12,0)"/>
+  <text x="58" y="94" font-family="Arial" font-size="11" fill="#333">Relationship</text>
+
+  <rect x="35" y="104" width="16" height="14" rx="2" fill="#EAF5EE" stroke="#1A6B3C" stroke-width="1.5"/>
+  <text x="58" y="115" font-family="Arial" font-size="11" fill="#333">Attribute</text>
+
+  <text x="35" y="127" font-family="Arial" font-size="11" fill="#C8960C" font-weight="bold">🔑 PK &nbsp; 🔗 FK &nbsp; * nullable</text>
+
+  <!-- dashed line legend -->
+  <line x1="35" y1="122" x2="35" y2="122" stroke="none"/>
+  <line x1="155" y1="122" x2="310" y2="122" stroke="#C8960C" stroke-dasharray="5,3" stroke-width="1.5"/>
+  <text x="165" y="121" font-family="Arial" font-size="10" fill="#C8960C">FK reference (no diamond)</text>
+</svg>
+</body>
+</html>
